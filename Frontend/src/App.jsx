@@ -15,10 +15,11 @@ const router = createBrowserRouter([
       { path: "/posts", element: ( <PostListPage /> )},
       { path: "/:slug", element: ( <SinglePostPage /> )},
       { path: "/write", element: ( <Write /> )},
-      { path: "/login", element: ( <LoginPage /> )},
+      // { path: "/login", element: ( <LoginPage /> )},
       { path: "/register", element: ( <RegisterPage /> )},
     ]
-  }
+  },
+  { path: "/login", element: ( <LoginPage /> )},
 ])
 
 const App = () => {
