@@ -7,6 +7,8 @@ import LoginPage from './routes/LoginPage'
 import RegisterPage from './routes/RegisterPage'
 import Layout from './components/layout/Layout'
 import AuthLayout from './components/layout/AuthLayout'
+import ForgetPassword from './routes/ForgetPassword'
+import TermsAndConditions from './routes/TermsAndConditions'
 
 const router = createBrowserRouter([
   {
@@ -16,8 +18,7 @@ const router = createBrowserRouter([
       { path: "/posts", element: ( <PostListPage /> )},
       { path: "/:slug", element: ( <SinglePostPage /> )},
       { path: "/write", element: ( <Write /> )},
-      // { path: "/login", element: ( <LoginPage /> )},
-      // { path: "/register", element: ( <RegisterPage /> )},
+      { path: "/terms-conditions", element: ( <TermsAndConditions />)}
     ]
   },
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     children:[
       { path: "/login", element: ( <LoginPage /> )},
       { path: "/register", element: ( <RegisterPage /> )},
+      { path: "/forgot-password", element: ( <ForgetPassword />)},
     ]
   }
 ])
