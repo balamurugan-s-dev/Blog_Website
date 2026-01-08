@@ -6,6 +6,7 @@ import Write from './routes/Write'
 import LoginPage from './routes/LoginPage'
 import RegisterPage from './routes/RegisterPage'
 import Layout from './components/layout/Layout'
+import AuthLayout from './components/layout/AuthLayout'
 
 const router = createBrowserRouter([
   {
@@ -16,10 +17,16 @@ const router = createBrowserRouter([
       { path: "/:slug", element: ( <SinglePostPage /> )},
       { path: "/write", element: ( <Write /> )},
       // { path: "/login", element: ( <LoginPage /> )},
-      { path: "/register", element: ( <RegisterPage /> )},
+      // { path: "/register", element: ( <RegisterPage /> )},
     ]
   },
-  { path: "/login", element: ( <LoginPage /> )},
+  {
+    element: <AuthLayout/>,
+    children:[
+      { path: "/login", element: ( <LoginPage /> )},
+      { path: "/register", element: ( <RegisterPage /> )},
+    ]
+  }
 ])
 
 const App = () => {
