@@ -8,20 +8,20 @@ export const register = async (req, res) => {
 
     try {
         if(!username || !email || !password) {
-            return res.status(400).json({message: "All the fields are require !"})
+            return res.status(400).json({status:false, message: "All the fields are require !"})
         }
 
         if(username.length < 6){
-            return res.status(400).json({message: "Username must be atleast 6 character"})
+            return res.status(400).json({status:false, message: "Username must be atleast 6 character"})
         }
 
         if(password.length < 8 ){
-            return res.status(400).json({message: "Password must be atleast 8 character"})
+            return res.status(400).json({status:false, message: "Password must be atleast 8 character"})
         }
 
         const userexit = await model.findOne({email})
         if(userexit){
-            return res.status(409).json({message: "User already exist use different email"})
+            return res.status(409).json({status:false, message: "User already exist use different email"})
         }
 
         const salt = await bcrypt.genSalt(10)
@@ -52,17 +52,17 @@ export const login = async(req, res) => {
 
     try {
         if(!email || !password){
-            return res.status(400).json({message: "All the fields are require !"})
+            return res.status(400).json({status:false, message: "All the fields are require !"})
         }
 
         const userexit = await model.findOne({email})
         if(!userexit){
-            return res.status(400).json({message: "Invalid credentials"})
+            return res.status(400).json({status:false, message: "Invalid credentials"})
         }
 
         const isMatch = await bcrypt.compare(password, userexit.password)
         if(!isMatch){
-            return res.status(401).json({ message: "Invalid credentials" });
+            return res.status(401).json({status:false, message: "Invalid credentials" });
         }
 
         const token = jwt.sign({id : userexit._id}, env.JWT_SECRET, {
