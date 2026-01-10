@@ -1,4 +1,4 @@
-import env from './config.js'
+import env from './config/envConfig.js'
 import app from './app.js'
 import connectDB from './database/connectDB.js'
 

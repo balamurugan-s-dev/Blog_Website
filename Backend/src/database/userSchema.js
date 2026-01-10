@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import env from '../config.js'
 
-const blogUser = new mongoose.Schema({
+const bloguser = new mongoose.Schema({
     name : {
         type: String,
         require: true
@@ -40,6 +39,6 @@ const blogUser = new mongoose.Schema({
     },
 })
 
-const model = mongoose.model(env.DB_NAME, blogUser)
+const model = mongoose.model("users", bloguser)
 
 export default model
