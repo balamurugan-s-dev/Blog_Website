@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import GoogleIcon from '../components/icons/GoogleIcon';
 import Assets from '../assets/Assets';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import API_URL from '../components/common/apiURL';
+import toast from 'react-hot-toast';
 
 const RegisterPage = () => {
 
@@ -17,12 +17,25 @@ const RegisterPage = () => {
     email: "",
     password: ""
   })
+
+  const [confirmpass, setConfirmpass] = useState('')
+  const navigate = useNavigate()
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (!termcheck) {
-      alert("Terms and conditions and need to be accepted.")
+
+    if (confirmpass !== formData.password) {
+      toast.error("Password missmach")
       return
     }
+
+    if (!termcheck) {
+      toast("Please accept the Terms & Conditions to continue", {
+        icon: "⚠️",
+      });
+      return
+    }
+
+    const toastID = toast.loading("Loading...")
 
     try {
       const res = await axios.post(
@@ -31,10 +44,13 @@ const RegisterPage = () => {
         { withCredentials: true }
       );
 
-      console.log(res.data);
-      alert("Registered successfully");
+      // console.log(res.data);
+      if (res.data.status) {
+        toast.success("Registered successfully", {id: toastID});
+        navigate("/")
+      }
     } catch (error) {
-      console.log(error.response?.data?.message || "Registration failed")
+      toast.error(error.response?.data?.message || "Registration Failed", {id: toastID})
     }
   }
 
@@ -111,6 +127,9 @@ const RegisterPage = () => {
                 <input className="border-2 w-full border-gray-400 rounded-md px-3 py-3 text-sm"
                   autoComplete="new-password"
                   id="cpassword"
+                  name='cpassword'
+                  value={confirmpass}
+                  onChange={(e) => setConfirmpass(e.target.value)}
                   type={confpass ? "password" : "text"}
                   placeholder='confirm password'
                 />

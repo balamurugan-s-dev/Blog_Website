@@ -8,9 +8,7 @@ const Navbar = () => {
   return (
     <div className='w-full h-16 md:h-20 flex items-center justify-between'>
         {/* LOGO */}
-        <Link to="/" className=''>
-            <Logo />
-        </Link>
+        <Logo />
 
         {/* Mobile Menu */}
         <div className='md:hidden'>
