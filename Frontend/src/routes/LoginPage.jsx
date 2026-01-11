@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import GoogleIcon from '../components/icons/GoogleIcon';
+import GoogleIcon from '../assets/GoogleIcon';
 import Assets from '../assets/Assets';
 import { Link, useNavigate } from 'react-router-dom';
 import ForgetPassword from './ForgetPassword';
-import API_URL from '../components/common/apiURL';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
@@ -28,18 +27,18 @@ const LoginPage = () => {
     const toastID = toast.loading("Loading...")
 
     try {
-      const res = await axios.post(`${API_URL}/auth/login`,
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`,
         formdata,
         { withCredentials: true }
       )
 
       // console.log(res.data)
       if (res.data.status) {
-        toast.success("Welcome back!", {id: toastID})
+        toast.success("Welcome back!", { id: toastID })
         navigate("/")
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login Failed", {id: toastID})
+      toast.error(error.response?.data?.message || "Login Failed", { id: toastID })
     }
 
   }
@@ -63,7 +62,7 @@ const LoginPage = () => {
                 value={formdata.email}
                 autoComplete="email"
                 type="email"
-                onChange={(e)=>setFormdata({...formdata, email:e.target.value})}
+                onChange={(e) => setFormdata({ ...formdata, email: e.target.value })}
                 placeholder='Enter your email'
               />
             </div>
@@ -77,7 +76,7 @@ const LoginPage = () => {
                   name='password'
                   value={formdata.password}
                   type={passhide ? "password" : "text"}
-                  onChange={(e)=>setFormdata({...formdata, password:e.target.value})}
+                  onChange={(e) => setFormdata({ ...formdata, password: e.target.value })}
                   placeholder='Enter your password'
                 />
 

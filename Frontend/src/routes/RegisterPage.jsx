@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import GoogleIcon from '../components/icons/GoogleIcon';
+import GoogleIcon from '../assets/GoogleIcon';
 import Assets from '../assets/Assets';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import API_URL from '../components/common/apiURL';
 import toast from 'react-hot-toast';
 
 const RegisterPage = () => {
@@ -23,6 +22,11 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
+    if(!formData.username || !formData.email || !formData.password){
+      toast.error("Please fill all the field !")
+      return
+    }
+
     if (confirmpass !== formData.password) {
       toast.error("Password missmach")
       return
@@ -39,18 +43,18 @@ const RegisterPage = () => {
 
     try {
       const res = await axios.post(
-        `${API_URL}/auth/register`,
+        `${import.meta.env.VITE_API_URL}/api/auth/register`,
         formData,
         { withCredentials: true }
       );
 
       // console.log(res.data);
       if (res.data.status) {
-        toast.success("Registered successfully", {id: toastID});
+        toast.success("Registered successfully", { id: toastID });
         navigate("/")
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Registration Failed", {id: toastID})
+      toast.error(error.response?.data?.message || "Registration Failed", { id: toastID })
     }
   }
 
