@@ -96,3 +96,11 @@ export const logout = async(req, res) => {
     }
 }
 
+
+export const userAuthenticator = async(req, res) => {
+    try {
+        return res.status(200).json({status:true, message: "User is Authorized"})
+    } catch (error) {
+        return res.status(500).json({status:false, message:error.message})
+    }
+}
