@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
-function UserAuth() {
+function UserAuth({onLogout}) {
   const [click, setClick] = useState(false)
 
     const handleLogout = async() =>{
@@ -14,6 +14,8 @@ function UserAuth() {
 
         if(res.data.status){
           toast.success("Logout Successfully")
+          onLogout()
+          setClick(false)
         }
 
       } catch (error) {
