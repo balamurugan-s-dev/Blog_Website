@@ -5,8 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import ForgetPassword from './ForgetPassword';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import {useAuth} from '../context/AuthContext';
 
 const LoginPage = () => {
+  const {login} = useAuth()
 
   const [passhide, setPassHide] = useState(true)
   const [formdata, setFormdata] = useState({
@@ -34,6 +36,7 @@ const LoginPage = () => {
 
       // console.log(res.data)
       if (res.data.status) {
+        login()
         toast.success("Welcome back!", { id: toastID })
         navigate("/")
       }

@@ -4,8 +4,10 @@ import Assets from '../assets/Assets';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import {useAuth} from '../context/AuthContext';
 
 const RegisterPage = () => {
+  const {login} = useAuth()
 
   const [passhide, setPassHide] = useState(true)
   const [confpass, setConfpass] = useState(true)
@@ -50,6 +52,7 @@ const RegisterPage = () => {
 
       // console.log(res.data);
       if (res.data.status) {
+        login()
         toast.success("Registered successfully", { id: toastID });
         navigate("/")
       }

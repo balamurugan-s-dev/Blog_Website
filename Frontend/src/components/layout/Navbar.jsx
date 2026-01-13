@@ -2,34 +2,12 @@ import { useEffect, useState } from 'react';
 import Logo from '../../assets/logo';
 import { Image } from '@imagekit/react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import UserAuth from '../common/UserAuth';
+import {useAuth} from '../../context/AuthContext';
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
-    const [userlogin, setUserlogin] = useState(false)
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/checkauth`, {
-                    withCredentials: true,
-                });
-
-                if (res.data.status) {
-                    // console.log(res.data.status)
-                    setUserlogin(true);
-                } else {
-                    setUserlogin(false);
-                }
-            } catch (error) {
-                setUserlogin(false);
-                console.log(error.response?.data?.message || error.message);
-            }
-        };
-
-        checkAuth();
-    }, [])
+    const {isLoggedIn} = useAuth()
 
     return (
         <div className='w-full h-16 md:h-20 flex items-center justify-between'>
@@ -38,7 +16,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <div className='md:hidden flex items-center gap-4'>
-                {userlogin ? <UserAuth /> : <span></span>}
+                {isLoggedIn ? <UserAuth/> : <span></span>}
                 <div className='cursor-pointer text-2xl' onClick={() => { setOpen(prev => !prev) }}>
                     {open ? <span className='text-red-700'>✕</span> : "☰"}
                 </div>
@@ -49,7 +27,7 @@ const Navbar = () => {
                     <Link to="/">About</Link>
                     <Link to="/">Contact</Link>
                     <Link to="/">Treanding</Link>
-                    {userlogin ? (
+                    {isLoggedIn ? (
                         <button>Logout</button>
                     ) : (
                         <Link to="/login">
@@ -67,15 +45,15 @@ const Navbar = () => {
                 <Link to="/">About</Link>
                 <Link to="/">Contact</Link>
                 <Link to="/">Treanding</Link>
-                {userlogin ? (
-                        <UserAuth />
-                    ) : (
-                        <Link to="/login">
-                            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-                                Login 👋
-                            </button>
-                        </Link>
-                    )}
+                {isLoggedIn ? (
+                    <UserAuth />
+                ) : (
+                    <Link to="/login">
+                        <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+                            Login 👋
+                        </button>
+                    </Link>
+                )}
             </div>
         </div>
     );
