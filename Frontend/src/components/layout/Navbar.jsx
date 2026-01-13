@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Logo from '../../assets/logo';
 import { Image } from '@imagekit/react';
 import { Link } from 'react-router-dom';
-import UserAuth from '../common/UserAuth';
+import UserAuth from '../common/AccountOverLay';
 import {useAuth} from '../../context/AuthContext';
 
 const Navbar = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
                     {open ? <span className='text-red-700'>✕</span> : "☰"}
                 </div>
 
-                {/* Mobile Link List */}
+
                 <div className={`top-16 fixed inset-0 bg-white flex flex-col gap-8 text-lg font-medium items-center justify-center transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"} `}>
                     <Link to="/">Home</Link>
                     <Link to="/">About</Link>
