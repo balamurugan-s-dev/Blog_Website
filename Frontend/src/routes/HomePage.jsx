@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MainCategory from '../components/MainCategory';
+import FeaturePost from '../components/FeaturePost';
 
 const HomePage = () => {
   return (
@@ -79,6 +81,12 @@ const HomePage = () => {
           <span className="text-teal-300 font-mono text-lg">&gt;</span>
         </div>
       </Link>
+
+      {/* category */}
+      <MainCategory/>
+
+      {/* Feature post */}
+      <FeaturePost />
     </div>
   );
 };
