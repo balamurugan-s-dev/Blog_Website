@@ -12,8 +12,10 @@ const HomePage = () => {
 
       <div className='flex items-center justify-between'>
         <div className=''>
-          <h1 className='text-gray-800 text-2xl md:text-3xl lg:text-5xl font-bold leading-snug md:leading-tight'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, quia.</h1>
-          <p className='mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-sl lg:text-xl text-gray-600'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo soluta porro cum accusamus voluptate iste.</p>
+          <h1 className='text-gray-800 text-2xl md:text-3xl lg:text-5xl font-bold leading-snug md:leading-tight'>Where developers write, share, and sharpen their thinking through code.</h1>
+          <p className='mt-4 sm:mt-6 md:mt-8 text-sm sm:text-base md:text-sl lg:text-xl text-gray-600'>
+            SyntaxHub is a space for code-driven stories, deep technical insights, and real-world lessons from building software.
+          </p>
         </div>
 
         <div className="hidden md:flex lg:flex-1 justify-end items-center">
