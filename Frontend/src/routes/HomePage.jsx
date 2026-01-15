@@ -6,7 +6,7 @@ import FeaturePost from '../components/FeaturePost';
 const HomePage = () => {
   return (
     <div className='mt-4 flex flex-col gap-4'>
-      <div className='flex gap-4'>
+      <div className='flex gap-4 text-sm md:text-base'>
         <Link to="/">Home</Link>
         <span>.</span>
         <span className='text-blue-800'>Blog and Article</span>
@@ -51,7 +51,7 @@ const HomePage = () => {
       </div>
 
       <Link to="/write" className="fixed bottom-6 right-6 z-50 group">
-        <div className="flex items-center gap-1 bg-blue-800 text-white px-3 py-2 sm:px-5 sm:py-3 rounded-full shadow-md sm:shadow-lg sm:shadow-blue-800/30 hover:bg-blue-700 transition-all duration-300 hover:scale-105">
+        <div className="flex items-center gap-1 bg-[#021526] text-white px-3 py-2 sm:px-5 sm:py-3 rounded-full shadow-md sm:shadow-lg sm:shadow-blue-800/30 hover:bg-blue-700 transition-all duration-300 hover:scale-105">
           {/* Left bracket */}
           <span className="text-teal-300 font-mono text-lg">&lt;</span>
 

@@ -31,7 +31,7 @@ const Navbar = () => {
                         <button>Logout</button>
                     ) : (
                         <Link to="/login">
-                            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+                            <button className="py-2 px-4 rounded-3xl bg-[#021526] text-white">
                                 Login 👋
                             </button>
                         </Link>
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <UserAuth />
                 ) : (
                     <Link to="/login">
-                        <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+                        <button className="py-2 px-4 rounded-3xl bg-[#021526] text-white">
                             Login 👋
                         </button>
                     </Link>
