@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Logo = () => {
   return (
     <Link to="/">
-    <div className="logo-container">
+    <div className="logo-container text-2xl md:text-2xl lg:text-3xl">
       <span className="bracket">&lt;</span>
       <span className="text">SyntaxHub</span>
       <span className="slash">/</span>
