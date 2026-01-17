@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import { Outlet } from 'react-router-dom';
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <div className="px-4 md:px-8 lg:px-16">
       <div className='sticky top-0 left-0 bg-white'><Navbar/></div>
@@ -10,4 +10,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;

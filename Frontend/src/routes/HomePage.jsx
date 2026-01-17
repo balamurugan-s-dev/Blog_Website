@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MainCategory from '../components/MainCategory';
 import FeaturePost from '../components/FeaturePost';
+import WriteButton from '../components/WriteButton';
+import SideContent from '../components/SideContent';
+import PostList from '../components/PostList';
 
 const HomePage = () => {
   return (
@@ -20,73 +23,24 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="hidden md:flex lg:flex-1 justify-end items-center">
-          <div className="w-50 h-40 max-w-sm lg:max-w-md rounded-xl border border-gray-200 bg-gray-50 shadow-sm overflow-hidden">
-
-            {/* Fake window header */}
-            <div className="flex items-center gap-2 px-4 py-2 border-b bg-white">
-              <span className="w-3 h-3 rounded-full bg-red-400"></span>
-              <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
-              <span className="w-3 h-3 rounded-full bg-green-400"></span>
-            </div>
-
-            {/* Code content */}
-            <pre className="px-4 py-4 text-sm font-bold text-gray-800 leading-relaxed">
-              <code>
-                <span className="text-blue-600">const</span>{" "}
-                <span className="text-emerald-600">write</span>{" "}
-                = () =&gt; {"{"}{"\n"}
-                {"  "}
-                <span className="text-blue-600">return</span>{" "}
-                &lt;<span className="text-purple-600">Story</span> /&gt;
-                {";\n"}
-                {"}"}
-                <span className="animate-blink ml-1">|</span>
-              </code>
-            </pre>
-          </div>
-        </div>
-
-
+        <SideContent />
       </div>
 
-      <Link to="/write" className="fixed bottom-6 right-6 z-50 group">
-        <div className="flex items-center gap-1 bg-[#021526] text-white px-3 py-2 sm:px-5 sm:py-3 rounded-full shadow-md sm:shadow-lg sm:shadow-blue-800/30 hover:bg-blue-700 transition-all duration-300 hover:scale-105">
-          {/* Left bracket */}
-          <span className="text-teal-300 font-mono text-lg">&lt;</span>
-
-          {/* Button content */}
-          <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 sm:w-5 sm:h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.8}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M16.862 3.487a2.25 2.25 0 113.182 3.182L7.125 19.588 3 21l1.412-4.125L16.862 3.487z"
-              />
-            </svg>
-
-            <span className="font-medium tracking-wide hidden sm:inline">
-              Write
-            </span>
-          </div>
-
-          {/* Right bracket */}
-          <span className="text-teal-300 font-mono text-lg">&gt;</span>
-        </div>
-      </Link>
+      <div className='fixed bottom-6 right-6 z-50'>
+        <WriteButton />
+      </div>
 
       {/* category */}
-      <MainCategory/>
+      <MainCategory />
 
       {/* Feature post */}
       <FeaturePost />
+
+      {/* post list */}
+      <div className=''>
+        <h1 className='my-8 text-2xl text-gray-800 font-bold'>Recent Post</h1>
+        <PostList />
+      </div>
     </div>
   );
 };

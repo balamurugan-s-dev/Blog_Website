@@ -5,7 +5,7 @@ import SinglePostPage from './routes/SinglePostPage'
 import Write from './routes/Write'
 import LoginPage from './routes/LoginPage'
 import RegisterPage from './routes/RegisterPage'
-import Layout from './components/layout/Layout'
+import MainLayout from './components/layout/MainLayout'
 import AuthLayout from './components/layout/AuthLayout'
 import ForgetPassword from './routes/ForgetPassword'
 import TermsAndConditions from './routes/TermsAndConditions'
@@ -13,7 +13,7 @@ import { Toaster } from 'react-hot-toast'
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       { path: "/", element: (<HomePage />) },
       { path: "/posts", element: (<PostListPage />) },
