@@ -1,68 +1,9 @@
-// import React from 'react';
-// import Assets from '../assets/Assets';
-// import { Link } from 'react-router-dom';
-
-// const SinglePostPage = () => {
-//   return (
-//     <div className='flex flex-col gap-8'>
-//       {/* details */}
-//       <div className='flex gap-8'>
-//         <div className='flex flex-col'>
-//           {/* title */}
-//           <h1 className='text-5xl font-semibold'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, excepturi.</h1>
-//           <div className='flex items-center gap-2 text-gray-400 text-sm'>
-//             <span>Written by</span>
-//             <Link>Jon dev</Link>
-//             <span>on</span>
-//             <Link>Web Design</Link>
-//             <span>4 days ago</span>
-//           </div>
-
-//           {/* desc */}
-//           <p className='text-gray-500 font-medium'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure rem tenetur provident placeat explicabo molestias?</p>
-//         </div>
-//         <div className='w-2/5'>
-//           <img src={Assets.Spider} alt="" />
-//         </div>
-//       </div>
-
-//       {/* content */}
-//       <div className="flex flex-col md:flex-row gap-8">
-//         {/* text */}
-//         <div className='flex flex-col gap-6 text-justify'>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ullam, deleniti maxime ratione numquam alias quae, suscipit ea nemo laborum earum quos et iste odio quo delectus molestiae accusantium ducimus cumque! Ut id est ullam, recusandae magni quas beatae deserunt at sed quis rerum minus fuga consectetur sequi, facilis nostrum, officia saepe assumenda? Reprehenderit explicabo nostrum illo, sequi omnis praesentium voluptatum nemo magni nihil velit doloribus modi, expedita soluta blanditiis minima repudiandae eaque accusantium culpa nesciunt iusto. Qui esse tempore excepturi porro dolor perspiciatis asperiores, aliquam, soluta, expedita itaque aperiam!</p>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ullam, deleniti maxime ratione numquam alias quae, suscipit ea nemo laborum earum quos et iste odio quo delectus molestiae accusantium ducimus cumque! Ut id est ullam, recusandae magni quas beatae deserunt at sed quis rerum minus fuga consectetur sequi, facilis nostrum, officia saepe assumenda? Reprehenderit explicabo nostrum illo, sequi omnis praesentium voluptatum nemo magni nihil velit doloribus modi, expedita soluta blanditiis minima repudiandae eaque accusantium culpa nesciunt iusto. Qui esse tempore excepturi porro dolor perspiciatis asperiores, aliquam, soluta, expedita itaque aperiam!</p>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ullam, deleniti maxime ratione numquam alias quae, suscipit ea nemo laborum earum quos et iste odio quo delectus molestiae accusantium ducimus cumque! Ut id est ullam, recusandae magni quas beatae deserunt at sed quis rerum minus fuga consectetur sequi, facilis nostrum, officia saepe assumenda? Reprehenderit explicabo nostrum illo, sequi omnis praesentium voluptatum nemo magni nihil velit doloribus modi, expedita soluta blanditiis minima repudiandae eaque accusantium culpa nesciunt iusto. Qui esse tempore excepturi porro dolor perspiciatis asperiores, aliquam, soluta, expedita itaque aperiam!</p>
-//           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ullam, deleniti maxime ratione numquam alias quae, suscipit ea nemo laborum earum quos et iste odio quo delectus molestiae accusantium ducimus cumque! Ut id est ullam, recusandae magni quas beatae deserunt at sed quis rerum minus fuga consectetur sequi, facilis nostrum, officia saepe assumenda? Reprehenderit explicabo nostrum illo, sequi omnis praesentium voluptatum nemo magni nihil velit doloribus modi, expedita soluta blanditiis minima repudiandae eaque accusantium culpa nesciunt iusto. Qui esse tempore excepturi porro dolor perspiciatis asperiores, aliquam, soluta, expedita itaque aperiam!</p>
-//         </div>
-
-//         {/* sidd menu */}
-//         <div className='px-4 h-max sticky top-8 '>
-//           <h1>Authon</h1>
-//           <div className='flex items-center gap-6'>
-//             <img src="" alt="" className='rounded-full w-15 h-15' />
-//             <Link>John dev</Link>
-//           </div>
-//           <p>Lorem ipsum dolor sit amet.</p>
-//           <div className='flex gap-2'>
-//               <Link>FaceBook</Link>
-//               <Link>Instagram</Link>
-//               <Link>Twitter</Link>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SinglePostPage;
-
 import React from 'react';
 import Assets from '../assets/Assets';
 import { Link } from 'react-router-dom';
 import PostActionmenu from '../components/PostActionmenu';
 import SidebarSearch from '../components/SidebarSearch';
-import Comment from '../components/Comment';
+import Comments from '../components/Comments';
 
 const SinglePostPage = () => {
   return (
@@ -190,7 +131,7 @@ const SinglePostPage = () => {
 
       {/* comments */}
 
-      <Comment />
+      <Comments />
     </div>
   );
 };

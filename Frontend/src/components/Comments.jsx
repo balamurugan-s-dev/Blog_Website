@@ -1,8 +1,25 @@
 import React from 'react'
+import Comment from '../components/Comment'
 
 const Comments = () => {
   return (
-    <div>Comments</div>
+    <div className='flex flex-col gap-8 lg:w-3/5'>
+        <h1 className='text-xl font-medium underline'>Comments</h1>
+        <div className="flex items-center justify-between gap-8 w-full">
+            <textarea name="" id="" placeholder='Write a comment...' className='w-full p-4 rounded-xl bg-gray-100'></textarea>
+            <button className='bg-blue-500 px-4 py-3 text-white font-medium rounded-xl'>Send</button>
+        </div>
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+        <Comment />
+    </div>
   )
 }
 
