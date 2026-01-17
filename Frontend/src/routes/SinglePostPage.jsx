@@ -60,6 +60,9 @@
 import React from 'react';
 import Assets from '../assets/Assets';
 import { Link } from 'react-router-dom';
+import PostActionmenu from '../components/PostActionmenu';
+import SidebarSearch from '../components/SidebarSearch';
+import Comment from '../components/Comment';
 
 const SinglePostPage = () => {
   return (
@@ -132,10 +135,10 @@ const SinglePostPage = () => {
         <div
           className="
             w-full
-            lg:w-[280px]
+            lg:w-70
             h-max
             lg:sticky
-            lg:top-25
+            lg:top-24
             border-t
             lg:border-t-0
             lg:border-l
@@ -145,7 +148,7 @@ const SinglePostPage = () => {
             lg:pl-6
           "
         >
-          <h1 className="font-semibold text-lg mb-4">Author</h1>
+          <h1 className='mb-4 text-sm font-medium'>Author</h1>
 
           <div className="flex items-center gap-4 mb-3">
             <img
@@ -167,9 +170,27 @@ const SinglePostPage = () => {
             <Link>Instagram</Link>
             <Link>Twitter</Link>
           </div>
-        </div>
 
+          <PostActionmenu />
+
+          <h1 className='mt-4 mb-2 text-sm font-medium'>Categories</h1>
+          <div className="flex flex-col gap-2 text-sm">
+            <Link className='underline'>All</Link>
+            <Link className='underline'>Web Design</Link>
+            <Link className='underline'>Development</Link>
+            <Link className='underline'>Database</Link>
+            <Link className='underline'>Search Engine</Link>
+            <Link className='underline'>IOT</Link>
+            <Link className='underline'>Backend</Link>
+          </div>
+          <h1 className='mt-8 mb-4 text-sm font-medium'>Search</h1>
+          <SidebarSearch />
+        </div>
       </div>
+
+      {/* comments */}
+
+      <Comment />
     </div>
   );
 };
