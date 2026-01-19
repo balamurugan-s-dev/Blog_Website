@@ -9,3 +9,9 @@ export const getPost = async(req, res) => {
     const post = await postModel.findOne({slug:req.params.slug});
     res.status(200).json({post: post});
 }
+
+export const createPost = async(req, res) =>{
+    const newPost = new postModel(req.body);
+    const post = await newPost.save();
+    res.status(200).send(post);
+}
